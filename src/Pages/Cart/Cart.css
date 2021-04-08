@@ -1,0 +1,20 @@
+.total-item{
+    font-family: 'Bebas Neue', cursive;
+    color: #3d2514;   
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size:1.9rem;
+    text-align: center;
+    margin-top: 80px;
+}
+.item-img{
+    width:80px;
+    height:70px;
+}
+
+@media only screen and (max-width: 600px){
+    .item-img{
+        width:60px;
+        height:40px;
+    }
+}

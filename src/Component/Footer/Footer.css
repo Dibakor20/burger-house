@@ -1,0 +1,54 @@
+.last-banner{
+    width: 100%;
+    background-image: url(../../images/bottom.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 400px;
+}
+.fa-map-marker-alt:before{
+    margin-left: 50px;
+}
+.adress{
+    margin-left:90px;
+}
+.fa-envelope:before{
+    margin-left:50px;
+}
+.footer-title{
+    font-family: 'Bebas Neue', cursive;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 22px;
+}
+.social-icon ul li{
+    list-style: none;
+    display: inline-block;
+   text-align: center;
+   margin-top: 45px;
+  margin-left: 15px;
+}
+.social-icon ul li {
+    height: 40px;
+    width: 40px;
+    color: black;
+    line-height: 40px;
+    background-color:white;
+    border-radius: 100%;
+}
+.social-icon ul {
+    margin-left:90px;
+}
+@media only screen and (max-width: 600px){
+    .last-logo{
+        width: 250px !important;
+    }
+    .adress{
+        margin-left: 0px !important;
+    }
+    .footer-title{
+        margin-left: 10px !important;
+    }
+    .social-icon ul{
+        margin-left: 0px !important;
+    }
+}

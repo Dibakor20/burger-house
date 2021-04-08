@@ -1,0 +1,33 @@
+.left-content p{
+    border: 2px dashed black;
+    padding: 10px;
+    font-family: 'Bebas Neue', cursive;
+    font-weight: 400;
+    color:#3d2514;  
+    font-size: 18px;
+    display: inline-block;
+    margin-top: 120px;
+ 
+ }
+.left-content h1{
+    font-family: 'Alfa Slab One', cursive;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: #3d2514; 
+    font-size: 83px;
+    text-shadow: 3px 3px #fee8bc;
+    
+}
+.left-content h3{
+    font-family: 'Alfa Slab One', cursive;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: #3d2514; 
+    font-size: 43px;
+    text-shadow: 2px 2px #fee8bc;
+}
+@media only screen and (max-width: 600px){
+    .left-content h1{
+        font-size: 65px !important;
+    } 
+}

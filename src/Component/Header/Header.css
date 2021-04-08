@@ -1,0 +1,39 @@
+.bike{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: #3d2514;     
+}
+.nav-link{
+    font-family: 'Montserrat', sans-serif;
+    color: #3d2514 !important;    
+    font-size: 18px;
+    font-weight: 600;
+}
+.log{
+    background-color: goldenrod !important;
+    border-radius: 10px;
+}
+.shoping{
+    font-size: 1.6rem;
+    color: black !important;
+    
+}
+
+@media only screen and (max-width: 600px){
+
+    .food-one{
+        height: 30vh !important;
+    }
+    .food-two{
+        height: 18vh !important;
+    }
+    .food-three{
+        height: 18vh !important;
+    }
+    .food {
+        width: 95% !important;
+    }
+    .last-banner{
+        height: 80vh !important;
+    }
+}

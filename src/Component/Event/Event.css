@@ -1,0 +1,48 @@
+.carousel-item img{
+    border-radius: 12px!important;
+}
+.carousel-caption{
+    width: 20%!important;
+    height: 100%!important;
+    left: 25%!important;
+    top: 0!important;
+    bottom: 0!important;
+    right: 0!important;
+    background-color:black;
+    opacity: 0.5;
+    text-align: left;
+    
+}
+.carousel-control-prev-icon {
+    background-color:black !important;
+}
+.carousel-control-next-icon{
+    background-color:black !important;
+  
+}
+.link{
+    text-decoration: none!important;
+    color: #d1bb72!important;
+}
+.link:hover{
+    color: #d1bb72!important;
+}
+.bottom-slider{
+    background-color: #fbf9f2;
+}
+.upComming{
+    font-family: 'Bebas Neue', cursive;
+    color: #3d2514;   
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 36px;
+    text-align: center;
+}
+.news{
+    font-family: 'Bebas Neue', cursive;
+    color: black;   
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 30px;
+    text-align: center;
+}

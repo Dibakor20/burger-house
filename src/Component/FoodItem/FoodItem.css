@@ -1,0 +1,26 @@
+.foodImg{
+    width:250px;
+    height: 150px;
+}
+.food{
+    width: 252px;
+}
+.card:hover {
+    box-shadow: 5px 5px 10px grey, -5px -5px 10px grey;
+    transition: .3s;
+    cursor: pointer;
+}
+.food-name{
+    color:#3d2514 ;
+    font-family: 'Bebas Neue', cursive;
+}
+a:link {
+    text-decoration: none;
+   
+  }
+
+  @media only screen and (max-width: 600px){
+    .food {
+        width: 95% !important;
+    }
+}

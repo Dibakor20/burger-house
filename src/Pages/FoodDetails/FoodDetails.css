@@ -1,0 +1,24 @@
+.food-title{
+    margin-top: 80px;
+    font-family: 'Bebas Neue', cursive;
+    color: #3d2514;   
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size:1.9rem;
+}
+.food-description{
+    font-family: 'Bebas Neue', cursive;
+    font-size:1.3rem;
+}
+.foodImg img{
+    margin-top: 80px;
+}
+.plus{
+    color:#ff0066;
+}
+
+@media only screen and (max-width: 600px){
+    .foodImg img{
+        margin-top: 40px !important;
+    }
+}
