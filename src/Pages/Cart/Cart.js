@@ -24,10 +24,10 @@ const Cart = () => {
             <div className="container">
             {
                 cart?.length ?
-                    <h1 className='total-item'>Total Item in Cart: <span className='text-danger'>{cart.length}</span></h1>
+                    <h1 className='total-item'>Total Item in Cart: <span className='text-danger'>{cart?.length}</span></h1>
                     : <h1 className='text-center px-3 display-5 text-danger mt-5'>Your Cart is Empty!</h1>
             }
-           { 
+           
                      
             <table className="table">
                 <thead id='thead' className="bg-light">
@@ -54,14 +54,14 @@ const Cart = () => {
                     }
                           <tr>
                               <td colspan='2' className='h3 text-center font-family'>Total Cost: </td>
-                              <td colspan='2' className='h4 text-right font-family'>${cart.reduce((total, current) => total + current?.price * current.count , 0)}</td>
+                              <td colspan='2' className='h4 text-right font-family'>${cart?.reduce((total, current) => total + current?.price * current.count , 0)}</td>
                           </tr>
                 </tbody>
             </table>
  
-        }
+        
        {
-           cart.length>0 ? <Link to="/checkoutForm"> <button onClick="" className="d-block ml-auto btn btn-success mr-5 pl-5 pr-5 mb-5">Checkout</button></Link> :
+           cart?.length>0 ? <Link to="/checkoutForm"> <button onClick="" className="d-block ml-auto btn btn-success mr-5 pl-5 pr-5 mb-5">Checkout</button></Link> :
            <button onClick="" className="d-block ml-auto btn btn-success disabled mr-5 pl-5 pr-5 mb-5">Checkout</button>
        }
         </div>

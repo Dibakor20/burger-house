@@ -18,7 +18,7 @@ export const handleGoogleSignIn = ()=>{
     console.log(displayName,email)
     const signInUser = {
         isSignIn:true,
-        name: displayName,
+        displayName: displayName,
         email:email,
         photo:photoURL,
     }

@@ -1,22 +1,55 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Header from '../../Component/Header/Header';
 import { useForm } from "react-hook-form";
 import './CheckoutForm.css'
 import { UserContext } from '../../App';
+import { useHistory } from 'react-router';
 
 const CheckoutForm = () => {
+    const history = useHistory()
     const [cart,setCart] = useContext(UserContext)
-    console.log(cart)
+    const [,,loggedInUser,setLoggedInUser] = useContext(UserContext)
+    const [,,,,,,orderInfo,setOrderInfo] = useContext(UserContext)
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
-    const onSubmit = data => console.log(data.name);
+
+    const emailData = sessionStorage.getItem('email')
 
     useEffect(()=>{
         setCart(JSON.parse(sessionStorage.getItem('cart')));
+        console.log(cart)
     },[setCart])
+
+    const onSubmit = data => {
+        const orderDetails = {
+            name:loggedInUser.displayName,
+            email: emailData,
+            cart:[...cart],
+            shipment: data,
+            "status": 'PENDING',
+            time:new Date().toLocaleString()
+        };
+        fetch('https://guarded-bayou-10411.herokuapp.com/allOrder',{
+            method:'POST',
+            headers:{
+                'Content-Type' : 'application/json'
+            },
+            body:JSON.stringify(orderDetails)
+        })    
+        setOrderInfo(orderDetails)
+
+            if(data){
+                sessionStorage.removeItem('cart')
+                setCart([])
+                alert('You Have Order Successfully')
+                history.push('/customerOrder')
+            }        
+    };
+   sessionStorage.setItem('orderInfo',JSON.stringify(orderInfo))
 
     const total = cart.reduce((total,current)=> total + current?.price * current.count , 0 )
     const fee = 50
     const subtotal = (total + fee )
+  
     return (
         <>
            <Header/>
@@ -31,14 +64,14 @@ const CheckoutForm = () => {
                         <div className="col-md-6">
                         <div class="input-group">
                         <label for="">Name</label><br/>
-                        <input className="inp-style" placeholder="Enter Your Name" {...register("name", { required: true })} /><br/>
+                        <input className="inp-style" value={sessionStorage.getItem('displayName')} {...register("name", { required: true })} /><br/>
                         {errors.name && <span className="error">Name field is required</span>}
                         </div>
                         </div>
                         <div className="col-md-6">
                         <div class="input-group">
                         <label for="">Email</label><br/>
-                        <input className="inp-style" placeholder="You@example.com" {...register("email", { required: true })} /><br/>
+                        <input className="inp-style" value={ sessionStorage.getItem('email')} {...register("email", { required: true })} /><br/>
                         {errors.email && <span className="error">Email field is required</span>}
                         </div>
                         </div>
@@ -47,7 +80,7 @@ const CheckoutForm = () => {
                         <div className="col-md-6">
                         <div class="input-group">
                         <label for="">Mobile Number</label><br/>
-                        <input className="inp-style" placeholder="Enter Your Mobile Number" {...register("number", { required: true })} /><br/>
+                        <input className="inp-style" type="number" placeholder="Enter Your Mobile Number" {...register("number", { required: true })} /><br/>
                         {errors.number && <span className="error">Mobile number field is required</span>}
                         </div>
                         </div>
@@ -58,15 +91,15 @@ const CheckoutForm = () => {
                         {errors.city && <span className="error">Mobile number field is required</span>}
                         <option selected disabled>Select Your street Name</option>
                         <option>Zindabazar</option> 
-                        <option>Zindabazar</option> 
-                        <option>Zindabazar</option> 
-                        <option>Zindabazar</option> 
-                        <option>Zindabazar</option> 
-                        <option>Zindabazar</option> 
-                        <option>Zindabazar</option> 
-                        <option>Zindabazar</option> 
-                        <option>Zindabazar</option> 
-                        <option>Zindabazar</option> 
+                        <option>Bondhor</option> 
+                        <option>Barudhkana</option> 
+                        <option>Subanighat</option> 
+                        <option>Rekabibazar</option> 
+                        <option>Amberkana</option> 
+                        <option>Mirabazar</option> 
+                        <option>Shibgonj</option> 
+                        <option>Chowhatta</option> 
+                        <option>Lamabazar</option> 
                     </select>
                         </div>
                         </div>
@@ -78,7 +111,7 @@ const CheckoutForm = () => {
                         </div>
                        
                         {
-                            <button className='btn btn-primary d-block mx-auto my-2'>Place Order</button>
+                            <button  className='btn btn-primary d-block mx-auto my-2'>Place Order</button>
                         }
                        
                        </form>

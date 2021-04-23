@@ -16,7 +16,8 @@ const Header = () => {
         if (logout) {
             const updateUser = {
                 isSignedIn: false,
-                name: '',
+                name:'',
+                displayName: '',
                 email: '',
                 password: '',
                 confirmPassword: '',
@@ -27,6 +28,7 @@ const Header = () => {
             setLoggedInUser(updateUser);
             setUser(updateUser);
             sessionStorage.setItem('email', '')
+            sessionStorage.setItem('displayName', '')
             history.push('/');
         }
     }
@@ -46,15 +48,16 @@ const Header = () => {
                 <div class="contact-no mt-1">
                  
                    <Link to="/cart"> <i class="fas fa-shopping-cart shoping"></i>
-                    <span className="badge badge-danger">{cart?.length}</span></Link>
-                    <span class="bike ml-3">Express Delivery</span>
+                    <span className="badge badge-danger">{cart?`${cart?.length}`:'0'}</span></Link>
+                    <span class="bike ml-3">Express Delivery  +9502345</span>
                     </div>
+                   
                     <li class="nav-item ml-4 mr-3">
-                        <a class="nav-link" href="#">order</a>
+                    {sessionStorage.getItem('email') &&    <Link class="nav-link" to="/dashboard">Dashboard</Link>}
                     </li>
                     <li class="nav-item">
                     {
-                    sessionStorage.getItem('email') ? <button title="Click to LogOut" className="btn log" onClick={signOut}>{sessionStorage.getItem('email')}</button> : <Link className="btn log" to="/login">LogIn</Link>
+                    sessionStorage.getItem('email') ? <button title="Click to LogOut" className="btn log" onClick={signOut}> {sessionStorage.getItem('email')}</button> : <Link className="btn log" to="/login">LogIn</Link>
                         }
                     </li>
                 </ul>

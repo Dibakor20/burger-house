@@ -16,9 +16,11 @@ const FoodDetails = () => {
 
  
 useEffect(()=>{
-    const foodData = FakeData.find(food =>food.name===name);
-    setfoodItem(foodData)
-    sessionStorage.setItem('foodData',JSON.stringify(foodData))
+    fetch('https://guarded-bayou-10411.herokuapp.com/burger/'+name)
+    .then(res=>res.json())
+    .then(foodData=>setfoodItem(foodData))
+
+    sessionStorage.setItem('foodData',JSON.stringify(foodItem))
 },[name])
 
    const buttonIncrease =()=>{
@@ -33,10 +35,10 @@ useEffect(()=>{
   const handleAddToCart = () =>{
     let updatedCart;
         if (cart?.length) {
-            updatedCart = [...cart, { ...foodItem,"count":count }];
+            updatedCart = [...cart, { ...foodItem,"count":count,"time":new Date().toLocaleString() }];
         }
         else {
-            updatedCart = [{ ...foodItem,"count":count }]
+            updatedCart = [{ ...foodItem,"count":count,"time":new Date() }]
         }
 
         sessionStorage.setItem('cart', JSON.stringify(updatedCart));
@@ -72,7 +74,7 @@ useEffect(()=>{
                  <button onClick={handleAddToCart} className="btn btn-danger mt-5">Add To Cart</button>
                 </div>
                 <div className="col-md-6 foodImg">
-                    <img src={foodItem?.img} alt="" className="w-75"/>
+                    <img src={foodItem?.img} alt="" className="burger-img"/>
                 </div>
             </div>
           </div>

@@ -16,9 +16,16 @@
 .plus{
     color:#ff0066;
 }
+.burger-img{
+    width: 400px !important;
+    height: 250px !important;
+}
 
 @media only screen and (max-width: 600px){
     .foodImg img{
         margin-top: 40px !important;
+    }
+    .burger-img{
+        width: 380px !important;
     }
 }
