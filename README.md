@@ -48,8 +48,6 @@ A full-stack restaurant app where you can order your favorite Burger from the me
 
 ✅ Firebase
 
-✅ Css.
-
 ✅ Heroku.
 
 ## Live Link :
