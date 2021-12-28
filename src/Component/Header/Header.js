@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import logo from '../../images/logo.png'
+import logo from '../../images/logo-2.png'
 import bike from '../../images/bike.png'
 import './Header.css'
 import { Link, useHistory, useLocation } from 'react-router-dom';
@@ -39,7 +39,7 @@ const Header = () => {
         
         <div className="container">
             <nav class="navbar navbar-expand-lg navbar-light ">
-           <Link to="/home"><img src={logo} alt=""/></Link>
+           <Link to="/home"><img src={logo} alt="" className='banner-logo'/></Link>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
