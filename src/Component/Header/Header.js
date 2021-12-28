@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import logo from '../../images/logo-2.png'
+import logo from '../../images/logo.png'
 import bike from '../../images/bike.png'
 import './Header.css'
 import { Link, useHistory, useLocation } from 'react-router-dom';
@@ -34,12 +34,13 @@ const Header = () => {
     }
     sessionStorage.getItem('cart')
     
+    
     return (
         <> 
         
         <div className="container">
-            <nav class="navbar navbar-expand-lg navbar-light ">
-           <Link to="/home"><img src={logo} alt="" className='banner-logo'/></Link>
+            <nav class="navbar navbar-expand-lg navbar-light">
+           <Link to="/"><h3 className={`main-logo ${location.pathname === '/' ? 'text-white' : 'text-dark'}`}>Burger House</h3></Link>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -49,11 +50,11 @@ const Header = () => {
                  
                    <Link to="/cart"> <i class="fas fa-shopping-cart shoping"></i>
                     <span className="badge badge-danger">{cart?`${cart?.length}`:'0'}</span></Link>
-                    <span class="bike ml-3">Express Delivery  +9502345</span>
+                    <span class= {`bike ml-3 ${location.pathname === '/' ? 'text-white' : 'text-dark'}`}>Express Delivery  +9502345</span>
                     </div>
                    
                     <li class="nav-item ml-4 mr-3">
-                    {sessionStorage.getItem('email') &&    <Link class="nav-link" to="/dashboard">Dashboard</Link>}
+                    {sessionStorage.getItem('email') &&    <Link class="nav-link" to="/dashboard"><h5 className= {` ${location.pathname === '/' ? 'text-white' : 'text-dark'}`}>Dashboard</h5></Link>}
                     </li>
                     <li class="nav-item">
                     {

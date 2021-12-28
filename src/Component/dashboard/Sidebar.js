@@ -42,7 +42,7 @@ const Sidebar = () => {
         <div>
         <Link to="/dashboard"><FontAwesomeIcon className="mr-3"  icon={faGripHorizontal} />Dashboard</Link>
         <Link to="/customerOrder"><FontAwesomeIcon className="mr-3"  icon={faShoppingCart} />My Order</Link>
-        <Link to="home"><FontAwesomeIcon className="mr-3"  icon={faHome} />Home</Link>
+        <Link to="/"><FontAwesomeIcon className="mr-3"  icon={faHome} />Home</Link>
         </div>
          }
         </div>
