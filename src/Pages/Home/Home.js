@@ -1,4 +1,5 @@
 import React from 'react';
+import About from '../../Component/About/About';
 import Banner from '../../Component/Banner/Banner';
 import Choose from '../../Component/Choose/Choose';
 import Event from '../../Component/Event/Event';
@@ -16,6 +17,7 @@ const Home = () => {
             <Header/>
             <Banner/>
             </div>
+            <About/>
             <Popular/>
             <Menu/>
             <Event/>
